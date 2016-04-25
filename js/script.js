@@ -339,8 +339,12 @@ $(document).ready(function(){
     function populateQuizArea() {
       if (quizQuestion = generateQuizQuestion()) {
         var quiz = $("#quiz");
-        quiz.find(".face.front").children(".js-generated-sentence").html(wrapParenthesisContent(quizQuestion.english, 'small'));
-        quiz.find(".face.back").children(".js-generated-sentence").html(quizQuestion.spanish);
+        quiz.find(".face.front").children(".js-generated-sentence").fadeOut(function(){
+          $(this).html(wrapParenthesisContent(quizQuestion.english, 'small')).fadeIn();
+        });
+        quiz.find(".face.back").children(".js-generated-sentence").fadeOut(function(){
+          $(this).html(quizQuestion.spanish).fadeIn();
+        })
       }
     }
 

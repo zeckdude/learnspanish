@@ -360,6 +360,7 @@ p.english-sentence {
   background-image: linear-gradient(120deg, #155799, #159957);
   font-family: Georgia, serif;
   font-size: 1.8em;
+  line-height: 1.2em;
   color: #fff;
 
   /*background-color: #fff;*/
@@ -370,6 +371,14 @@ p.english-sentence {
   /*background-image: none;*/
   /*border: 3px solid #159957;*/
 }
+
+@media (max-width: 500px) {
+  .flip .card .face {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
 .flip .card .back {
   -webkit-transform: rotatex(-180deg);
 }
@@ -379,6 +388,8 @@ p.english-sentence {
   border-bottom: 1px solid white;
   padding-bottom: 3px;
 }
+
+
 
 
 
