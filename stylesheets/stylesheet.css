@@ -75,6 +75,10 @@ a {
   margin-top: 0;
   margin-bottom: 0.1rem; }
 
+.project-name a {
+  color: white;
+}
+
 @media screen and (min-width: 64em) {
   .project-name {
     font-size: 3.25rem; } }
@@ -106,23 +110,23 @@ a {
 
 .main-content :first-child {
   margin-top: 0; }
-.main-content img {
+img {
   max-width: 100%; }
-.main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
+.main-content h1, h2, h3, h4, h5, h6 {
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-weight: normal;
   color: #159957; }
-.main-content p {
+p {
   margin-bottom: 1em; }
-.main-content code {
+code {
   padding: 2px 4px;
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 0.9rem;
   color: #383e41;
   background-color: #f3f6fa;
   border-radius: 0.3rem; }
-.main-content pre {
+pre {
   padding: 0.8rem;
   margin-top: 0;
   margin-bottom: 1rem;
@@ -132,7 +136,7 @@ a {
   background-color: #f3f6fa;
   border: solid 1px #dce6f0;
   border-radius: 0.3rem; }
-  .main-content pre > code {
+  pre > code {
     padding: 0;
     margin: 0;
     font-size: 0.9rem;
@@ -141,18 +145,18 @@ a {
     white-space: pre;
     background: transparent;
     border: 0; }
-.main-content .highlight {
+.highlight {
   margin-bottom: 1rem; }
-  .main-content .highlight pre {
+  .highlight pre {
     margin-bottom: 0;
     word-break: normal; }
-.main-content .highlight pre, .main-content pre {
+.highlight pre, pre {
   padding: 0.8rem;
   overflow: auto;
   font-size: 0.9rem;
   line-height: 1.45;
   border-radius: 0.3rem; }
-.main-content pre code, .main-content pre tt {
+pre code, pre tt {
   display: inline;
   max-width: initial;
   padding: 0;
@@ -162,41 +166,41 @@ a {
   word-wrap: normal;
   background-color: transparent;
   border: 0; }
-  .main-content pre code:before, .main-content pre code:after, .main-content pre tt:before, .main-content pre tt:after {
+  pre code:before, pre code:after, pre tt:before, pre tt:after {
     content: normal; }
-.main-content ul, .main-content ol {
+ul, ol {
   margin-top: 0; }
-.main-content blockquote {
+blockquote {
   padding: 0 1rem;
   margin-left: 0;
   color: #819198;
   border-left: 0.3rem solid #dce6f0; }
-  .main-content blockquote > :first-child {
+  blockquote > :first-child {
     margin-top: 0; }
-  .main-content blockquote > :last-child {
+  blockquote > :last-child {
     margin-bottom: 0; }
-.main-content table {
+table {
   display: block;
   width: 100%;
   overflow: auto;
   word-break: normal;
   word-break: keep-all; }
-  .main-content table th {
+  table th {
     font-weight: bold; }
-  .main-content table th, .main-content table td {
-    padding: 0.5rem 1rem;
+  table th, table td {
+    padding: 0.9rem 0.7rem;
     border: 1px solid #e9ebec; }
-.main-content dl {
+dl {
   padding: 0; }
-  .main-content dl dt {
+  dl dt {
     padding: 0;
     margin-top: 1rem;
     font-size: 1rem;
     font-weight: bold; }
-  .main-content dl dd {
+  dl dd {
     padding: 0;
     margin-bottom: 1rem; }
-.main-content hr {
+hr {
   height: 2px;
   padding: 0;
   margin: 1rem 0;
@@ -231,6 +235,152 @@ a {
 
 .site-footer-credits {
   color: #819198; }
+
+.site-footer-credits a {
+  margin-right: 30px;
+}
+
+#conjugation-words-chart {
+  display: flex;
+}
+
+table.words {
+  float: left;
+  margin-right: 20px;
+}
+
+table.words td {
+  padding: 0;
+}
+
+table.words td a {
+  padding: 0.9rem 0.7rem;
+  display: block;
+}
+
+table.words td a:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: rgba(21, 153, 87, 0.3);
+}
+
+table.words td a:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: rgba(10,74,42,0.8);
+}
+
+#conjugation-tables h3 {
+  text-transform: capitalize;
+}
+
+#conjugation-tables td.conjugation-term .append-to {
+  font-weight: 600;
+}
+
+td.conjugation-person {
+  background-color: rgba(21, 153, 87, 0.3);
+  width: 15%;
+}
+
+td.disabled {
+  background-color: rgba(7, 6, 17, 0.3);
+}
+
+#quiz {
+  padding: 30px;
+  border: 2px solid #606c71;
+}
+
+p.english-sentence {
+  margin: 20px 10px 30px;
+}
+
+.sentence-directions {
+  font-size: 0.8rem;
+  display: inline-block;
+}
+
+.answer-btns {
+  margin-top: 25px;
+}
+
+.answer-btn {
+  padding: 10px;
+  outline: none;
+  color: white;
+  border: none;
+  transition: all 75ms ease-in-out;
+}
+
+.answer-correct {
+  margin-right: 10px;
+  background-color: #50BD87;
+}
+
+.answer-correct:active {
+  background-color: #327755;
+}
+
+.answer-wrong {
+  background-color: #bd605e;
+}
+
+.answer-wrong:active {
+  background-color: #693534;
+}
+
+
+.flip {
+  -webkit-perspective: 800;
+  height: 110px;
+  position: relative;
+}
+.flip .card.flipped {
+  -webkit-transform: rotatex(-180deg);
+}
+.flip .card {
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+}
+.flip .card .face {
+  min-width: 400px;
+  height: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  z-index: 2;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 40px;
+
+  background-color: #159957;
+  background-image: linear-gradient(120deg, #155799, #159957);
+  font-family: Georgia, serif;
+  font-size: 1.8em;
+  color: #fff;
+
+  /*background-color: #fff;*/
+  /*font-family: "Helvetica Neue", arial, sans-serif;*/
+  /*color: #606c71;*/
+  /*font-size: 1.5em;*/
+  /*line-height: 1.5em;*/
+  /*background-image: none;*/
+  /*border: 3px solid #159957;*/
+}
+.flip .card .back {
+  -webkit-transform: rotatex(-180deg);
+}
+
+.flip .card .face small {
+  font-size: 20px;
+  border-bottom: 1px solid white;
+  padding-bottom: 3px;
+}
+
+
 
 @media screen and (min-width: 64em) {
   .site-footer {
