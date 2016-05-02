@@ -299,6 +299,7 @@ p.english-sentence {
 .sentence-directions {
   font-size: 0.8rem;
   display: inline-block;
+  margin-top: 5px;
 }
 
 .answer-btns {
@@ -313,12 +314,17 @@ p.english-sentence {
   transition: all 75ms ease-in-out;
 }
 
+.answer-btn[disabled] {
+  background-color: #d1cfcf;
+  color: #969696;
+}
+
 .answer-correct {
   margin-right: 10px;
   background-color: #50BD87;
 }
 
-.answer-correct:active {
+.answer-correct:enabled:active {
   background-color: #327755;
 }
 
@@ -326,29 +332,36 @@ p.english-sentence {
   background-color: #bd605e;
 }
 
-.answer-wrong:active {
+.answer-wrong:enabled:active {
   background-color: #693534;
 }
 
+@media (max-width: 500px) {
+  .answer-wrong {
+    float: right;
+  }
+}
 
+
+/*From: http://jsfiddle.net/zwWHY/831/ */
 .flip {
-  -webkit-perspective: 800;
+  perspective: 800;
   height: 110px;
   position: relative;
 }
 .flip .card.flipped {
-  -webkit-transform: rotatex(-180deg);
+  transform: rotatex(-180deg);
 }
 .flip .card {
   height: 100%;
-  -webkit-transform-style: preserve-3d;
-  -webkit-transition: 0.5s;
+  transform-style: preserve-3d;
+  transition: 0.5s;
 }
 .flip .card .face {
   min-width: 400px;
   height: 100%;
   position: absolute;
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   z-index: 2;
   cursor: pointer;
   display: flex;
@@ -375,12 +388,14 @@ p.english-sentence {
 @media (max-width: 500px) {
   .flip .card .face {
     width: 100%;
-    min-width: auto;
+    min-width: 0;
+    padding: 0 15px;
+    font-size: 1.5em;
   }
 }
 
 .flip .card .back {
-  -webkit-transform: rotatex(-180deg);
+  transform: rotatex(-180deg);
 }
 
 .flip .card .face small {

@@ -336,37 +336,123 @@ $(document).ready(function(){
       return string.replace(/(\(.*?\))/ , openTag+'$&</'+tag+'>');
     }
 
+    // Detect the End of CSS Animations and Transitions with JavaScript (https://jonsuh.com/blog/detect-the-end-of-css-animations-and-transitions-with-javascript/)
+    function whichTransitionEvent(){
+      var t,
+        el = document.createElement("fakeelement");
+
+      var transitions = {
+        "transition"      : "transitionend",
+        "OTransition"     : "oTransitionEnd",
+        "MozTransition"   : "transitionend",
+        "WebkitTransition": "webkitTransitionEnd"
+      };
+
+      for (t in transitions){
+        if (el.style[t] !== undefined){
+          return transitions[t];
+        }
+      }
+    }
+
+
+
+    function animateCardFlip(callback) {
+
+      // Let's make the callback optional
+      callback = callback || null;
+
+      console.log("flip card begin");
+
+      var card = $("#quiz").find(".card");
+
+      // Flip the card
+      card.toggleClass("flipped");
+
+      // Run a callback when the CSS animation has finished if it has been provided as an argument
+      if(callback) {
+        console.log("A callback was provided");
+
+        // Wait for the flipping animation to complete before running callback
+        setTimeout(function(){
+          // Run callback
+          callback();
+        }, 550);
+
+        // TODO: Make the below code work so it will run the callback when the CSS transition ends instead of using a manual timeout
+        //var transitionEvent = whichTransitionEvent();
+        //
+        //console.log("transitionEvent: ", transitionEvent);
+        //
+        //$("#quiz").on(transitionEvent, ".card", function (event) {
+        //  alert("flip card end");
+        //  callback();
+        //});
+      }
+
+    }
+
+    // FYI: This works at the global level but it doesn't work above inside the animateCardFlip() function
+    //var transitionEvent = whichTransitionEvent();
+    //$("#quiz").find(".card").bind(transitionEvent, function (event) {
+    //  alert("flip card end 2");
+    //});
+
+
+    var hasFirstQuestionRun = false;
+
     function populateQuizArea() {
-      if (quizQuestion = generateQuizQuestion()) {
-        var quiz = $("#quiz");
+      var quizQuestion = generateQuizQuestion();
+      var quiz = $("#quiz");
+
+      //console.log("hasFirstQuestionRun: ", hasFirstQuestionRun);
+
+      // Randomly change if the question begins on the Spanish or English side
+      if(getRandomInt(0,1) === 1 && hasFirstQuestionRun) {
+        // Fade out the questions, then wait for the flipping animation to complete before fading back in the new questions
+        quiz.find(".face.front").children(".js-generated-sentence").fadeOut(function(){
+          animateCardFlip(function(){
+            // Change out the question being shown
+            console.log("Fade in the content on the cards");
+            quiz.find(".face.front").children(".js-generated-sentence").html(wrapParenthesisContent(quizQuestion.english, 'small')).fadeIn();
+            quiz.find(".face.back").children(".js-generated-sentence").html(wrapParenthesisContent(quizQuestion.spanish, 'small')).fadeIn();
+          });
+        });
+
+        quiz.find(".face.back").children(".js-generated-sentence").fadeOut();
+      } else {
+        //alert("No Card Flip - Fade out, replace content, and fade back in");
+
+        // Change out the question being shown
         quiz.find(".face.front").children(".js-generated-sentence").fadeOut(function(){
           $(this).html(wrapParenthesisContent(quizQuestion.english, 'small')).fadeIn();
         });
         quiz.find(".face.back").children(".js-generated-sentence").fadeOut(function(){
           $(this).html(quizQuestion.spanish).fadeIn();
-        })
+        });
       }
+
+      disableAnswerBtns(true);
+
+      // If this is the first time the quiz has been populated, save that status so we can flip the card at random to display different sides before loading in the sentence
+      if(!hasFirstQuestionRun) { hasFirstQuestionRun = true; }
+    }
+
+    $('.flip').click(function(e) {
+      e.preventDefault();
+      animateCardFlip();
+      disableAnswerBtns(false);
+    });
+
+    function disableAnswerBtns(enableStatus) {
+      $(".js-answer-btn").prop("disabled", enableStatus);
     }
 
     populateQuizArea();
 
     // TODO: Save the value that was chosen and adjust the quiz score so the same questions are not asked again if it was correct
     $('.answer-btn').click(function(){
-      // Randomly change if the question begins on the Spanish or English side
-      if(getRandomInt(0,1) === 1) {
-        $("#quiz").find(".card").toggleClass("flipped");
-
-        // Wait for the flipping animation to complete before changing out the content
-        setTimeout(function(){
-          // Change out the question being shown
-          populateQuizArea();
-        }, 550);
-      } else {
-        // Change out the question being shown
-        populateQuizArea();
-      }
-
-
+      populateQuizArea();
     });
   }
 
@@ -382,15 +468,15 @@ $(document).ready(function(){
     var appendTo = randomTense.propertyValue.appendTo;
     var randomWord = getRandomWord(randomWordType.propertyName);
 
-    console.log("randomWordType: ", randomWordType);
-    console.log("randomTense: ", randomTense);
-    console.log("randomWord: ", randomWord);
+    //console.log("randomWordType: ", randomWordType);
+    //console.log("randomTense: ", randomTense);
+    //console.log("randomWord: ", randomWord);
 
     // Grab a random property from the tense and if the conjugation that was chosen is actually the "appendTo" property, then run the function as many times as necessary to get an actual conjugation value
     var randomTenseConjugationKey;
     do {
       randomTenseConjugationKey = randomProperty(randomTense.propertyValue);
-      console.log("randomTenseConjugationKey: ", randomTenseConjugationKey);
+      //console.log("randomTenseConjugationKey: ", randomTenseConjugationKey);
     }
     while (randomTenseConjugationKey.propertyName === "appendTo");
 
@@ -412,7 +498,7 @@ $(document).ready(function(){
     var randomWordGroup = randomProperty(conjugationWords[wordType]);
 
     //console.log("Random Word Type in Spanish Tenses: ", randomWordType);
-    console.log("Random Word Group in " + wordType, randomWordGroup.propertyValue);
+    //console.log("Random Word Group in " + wordType, randomWordGroup.propertyValue);
 
     // Properties of Random Word
     return randomWordGroup.propertyValue;
@@ -429,7 +515,7 @@ $(document).ready(function(){
     // Get a random word type(i.e. -ar words), random tense(i.e. future), and a random conjugation(i.e. ellos)
     randomConjugation = getRandomConjugation();
 
-    console.log("randomConjugation: ", randomConjugation);
+    //console.log("randomConjugation: ", randomConjugation);
 
     // Based on the Random Conjugation that was determined (i.e. yo, tu, el, nosotros, or ellos), determine which variation to use if applicable (as in el which can be substituted with ella or ud, or as in ellos which can be substituted with ellas or uds)
     switch(randomConjugation.conjugation.propertyName) {
@@ -540,7 +626,7 @@ $(document).ready(function(){
       connectorString = " " + connectorString + " ";
     }
 
-    console.log("randomConjugation in quiz builder: ", randomConjugation);
+    //console.log("randomConjugation in quiz builder: ", randomConjugation);
     var randomWord = 'dsdsdsd';
 
     if(randomConjugation.appendTo === "stem") {
@@ -656,12 +742,5 @@ $(document).ready(function(){
 
 });
 
-
-$(document).ready(function(){
-  $('.flip').click(function(e) {
-    e.preventDefault();
-    $(this).find('.card').toggleClass('flipped');
-  });
-});
 
 
