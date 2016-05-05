@@ -302,11 +302,11 @@ p.english-sentence {
   margin-top: 5px;
 }
 
-.answer-btns {
+.result-btns {
   margin-top: 25px;
 }
 
-.answer-btn {
+.result-btn {
   padding: 10px;
   outline: none;
   color: white;
@@ -314,30 +314,30 @@ p.english-sentence {
   transition: all 75ms ease-in-out;
 }
 
-.answer-btn[disabled] {
+.result-btn[disabled] {
   background-color: #d1cfcf;
   color: #969696;
 }
 
-.answer-correct {
+.result-correct {
   margin-right: 10px;
   background-color: #50BD87;
 }
 
-.answer-correct:enabled:active {
+.result-correct:enabled:active {
   background-color: #327755;
 }
 
-.answer-wrong {
+.result-wrong {
   background-color: #bd605e;
 }
 
-.answer-wrong:enabled:active {
+.result-wrong:enabled:active {
   background-color: #693534;
 }
 
 @media (max-width: 500px) {
-  .answer-wrong {
+  .result-wrong {
     float: right;
   }
 }
@@ -418,6 +418,34 @@ p.english-sentence {
   font-size: 20px;
   border-bottom: 1px solid white;
   padding-bottom: 3px;
+}
+
+
+/* From: http://codepen.io/zeckdude/pen/qZQeYp */
+.pulse-notification {
+  position: relative;
+  -webkit-animation: pulse-notification 1 1.25s cubic-bezier(0.66, 0, 0, 1);
+  -moz-animation: pulse-notification 1 1.25s cubic-bezier(0.66, 0, 0, 1);
+  -ms-animation: pulse-notification 1 1.25s cubic-bezier(0.66, 0, 0, 1);
+  animation: pulse-notification 1 1.25s cubic-bezier(0.66, 0, 0, 1);
+}
+
+.pulse-notification-correct {
+  box-shadow: 0 0 0 0 rgba(59, 232, 52, 0.7);
+}
+
+.pulse-notification-wrong {
+  box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.7);
+}
+
+@-webkit-keyframes pulse-notification {to {box-shadow: 0 0 0 40px rgba(232, 76, 61, 0);}}
+@-moz-keyframes pulse-notification {to {box-shadow: 0 0 0 40px rgba(232, 76, 61, 0);}}
+@-ms-keyframes pulse-notification {to {box-shadow: 0 0 0 40px rgba(232, 76, 61, 0);}}
+@keyframes pulse-notification {to {box-shadow: 0 0 0 40px rgba(232, 76, 61, 0);}}
+
+.pulse-notification:hover
+{
+  -webkit-animation: none;-moz-animation: none;-ms-animation: none;animation: none;
 }
 
 

@@ -336,10 +336,11 @@ $(document).ready(function(){
       return string.replace(/(\(.*?\))/ , openTag+'$&</'+tag+'>');
     }
 
-    // Detect the End of CSS Animations and Transitions with JavaScript (https://jonsuh.com/blog/detect-the-end-of-css-animations-and-transitions-with-javascript/)
-    function whichTransitionEvent(){
+    // Detect which CSS events are supported by the user's browser and only return the first one if several match (such as `transitionend` and `webkitTransitionEnd` for Chrome so you can listen for the end of a CSS event and then perform an action based on that) (https://jonsuh.com/blog/detect-the-end-of-css-animations-and-transitions-with-javascript/)
+    function browserSupportedEvents(){
       var t,
-        el = document.createElement("fakeelement");
+        el = document.createElement("fakeelement"),
+        browserSupportedEvents = {};
 
       var transitions = {
         "transition"      : "transitionend",
@@ -348,111 +349,131 @@ $(document).ready(function(){
         "WebkitTransition": "webkitTransitionEnd"
       };
 
+      var animations = {
+        "animation"      : "animationend",
+        "OAnimation"     : "oAnimationEnd",
+        "MozAnimation"   : "animationend",
+        "WebkitAnimation": "webkitAnimationEnd"
+      };
+
       for (t in transitions){
         if (el.style[t] !== undefined){
-          return transitions[t];
+          //console.log(transitions[t]);
+          browserSupportedEvents.transition = transitions[t];
+          break;
         }
       }
+
+      for (a in animations){
+        if (el.style[a] !== undefined){
+          //console.log(animations[a]);
+          browserSupportedEvents.animation = animations[a];
+          break;
+        }
+      }
+
+      return browserSupportedEvents;
     }
+
+    var supportedEvents = browserSupportedEvents();
+    var transitionEvent = supportedEvents.transition;
+    var animationEvent = supportedEvents.animation;
 
 
 
     function animateCardFlip(callback) {
-
       // Let's make the callback optional
       callback = callback || null;
 
       console.log("flip card begin");
 
-      var card = $("#quiz").find(".card");
-
       // Flip the card
-      card.toggleClass("flipped");
+      $("#quiz").find(".card").toggleClass("flipped");
 
       // Run a callback when the CSS animation has finished if it has been provided as an argument
       if(callback) {
         console.log("A callback was provided");
 
         // Wait for the flipping animation to complete before running callback
-        setTimeout(function(){
-          // Run callback
+        $("#quiz").one(transitionEvent, ".card", function (event) {
+          console.log("flip card end");
           callback();
-        }, 550);
-
-        // TODO: Make the below code work so it will run the callback when the CSS transition ends instead of using a manual timeout
-        //var transitionEvent = whichTransitionEvent();
-        //
-        //console.log("transitionEvent: ", transitionEvent);
-        //
-        //$("#quiz").on(transitionEvent, ".card", function (event) {
-        //  alert("flip card end");
-        //  callback();
-        //});
+        });
       }
 
     }
 
-    // FYI: This works at the global level but it doesn't work above inside the animateCardFlip() function
-    //var transitionEvent = whichTransitionEvent();
-    //$("#quiz").find(".card").bind(transitionEvent, function (event) {
-    //  alert("flip card end 2");
-    //});
-
-
     var hasFirstQuestionRun = false;
 
     function populateQuizArea() {
+      console.log("Populate Quiz Area");
+
       var quizQuestion = generateQuizQuestion();
       var quiz = $("#quiz");
 
-      //console.log("hasFirstQuestionRun: ", hasFirstQuestionRun);
-
-      // Randomly change if the question begins on the Spanish or English side
-      if(getRandomInt(0,1) === 1 && hasFirstQuestionRun) {
-        // Fade out the questions, then wait for the flipping animation to complete before fading back in the new questions
-        quiz.find(".face.front").children(".js-generated-sentence").fadeOut(function(){
-          animateCardFlip(function(){
-            // Change out the question being shown
-            console.log("Fade in the content on the cards");
-            quiz.find(".face.front").children(".js-generated-sentence").html(wrapParenthesisContent(quizQuestion.english, 'small')).fadeIn();
-            quiz.find(".face.back").children(".js-generated-sentence").html(wrapParenthesisContent(quizQuestion.spanish, 'small')).fadeIn();
-          });
-        });
-
-        quiz.find(".face.back").children(".js-generated-sentence").fadeOut();
-      } else {
-        //alert("No Card Flip - Fade out, replace content, and fade back in");
-
-        // Change out the question being shown
-        quiz.find(".face.front").children(".js-generated-sentence").fadeOut(function(){
-          $(this).html(wrapParenthesisContent(quizQuestion.english, 'small')).fadeIn();
-        });
-        quiz.find(".face.back").children(".js-generated-sentence").fadeOut(function(){
-          $(this).html(quizQuestion.spanish).fadeIn();
-        });
-      }
-
-      disableAnswerBtns(true);
+      // Change out the question being shown
+      console.log("Fade in the content on the cards");
+      quiz.find(".face.front").children(".js-generated-sentence").html(wrapParenthesisContent(quizQuestion.english, 'small')).fadeIn();
+      quiz.find(".face.back").children(".js-generated-sentence").html(quizQuestion.spanish).fadeIn();
 
       // If this is the first time the quiz has been populated, save that status so we can flip the card at random to display different sides before loading in the sentence
       if(!hasFirstQuestionRun) { hasFirstQuestionRun = true; }
     }
 
+    // Flip over the card when the user clicks on it to reveal the answer
     $('.flip').click(function(e) {
+      console.log('card clicked');
       e.preventDefault();
       animateCardFlip();
-      disableAnswerBtns(false);
+
+      // Enable the result buttons now that the quiz answer has been shown
+      disableResultBtns(false);
     });
 
-    function disableAnswerBtns(enableStatus) {
-      $(".js-answer-btn").prop("disabled", enableStatus);
+    function disableResultBtns(enableStatus) {
+      $(".js-result-btn").prop("disabled", enableStatus);
     }
 
+    // Populate Quiz on page load
     populateQuizArea();
 
     // TODO: Save the value that was chosen and adjust the quiz score so the same questions are not asked again if it was correct
-    $('.answer-btn').click(function(){
-      populateQuizArea();
+    $('.js-result-btn').click(function() {
+      //alert('clicked');
+
+      var resultStatus = $(this).data("result-status");
+      var quiz = $("#quiz");
+
+      // Disable the result buttons so the user needs to flip over the card to check the answer before selecting a result
+      disableResultBtns(true);
+
+      //console.log("isResultCorrect: " + isResultCorrect + "(" + typeof isResultCorrect + ")");
+
+      // Add the pulse notification to show their result in a visual way
+      $("div.face").addClass("pulse-notification pulse-notification-" + resultStatus);
+
+      // Force this function to only run once per click since the animation is being applied to both `.face` divs so it will actually detect it twice.
+      // TODO: Fix this by applying the `.pulse-notification` class on only the `.face` that is currently being shown.
+      quiz.one(animationEvent, ".face", function (event) {
+
+        // Since the animation has finished, remove the animation class
+        $("div.face").removeClass("pulse-notification pulse-notification-" + resultStatus);
+
+        // Fade out the content on the cards
+        quiz.find(".face.front").children(".js-generated-sentence").fadeOut(function(){
+          // If this is not the first question, randomly determine if the card should turn (show the other language to keep the questions unpredictable)
+          if(getRandomInt(0,1) === 1 && hasFirstQuestionRun) {
+            animateCardFlip(function(){
+              populateQuizArea();
+            });
+          } else {
+            populateQuizArea();
+          }
+        });
+
+        // TODO: Find a way to fade out both the `.face` divs but only have the above code run once when both are finished.
+        quiz.find(".face.back").children(".js-generated-sentence").fadeOut();
+      });
     });
   }
 
@@ -505,6 +526,8 @@ $(document).ready(function(){
   }
 
   function generateQuizQuestion() {
+    console.log('Question Generated');
+
     var randomConjugation;
     var englishType;
     var person;
