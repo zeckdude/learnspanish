@@ -1,0 +1,8 @@
+<!-- index.nunjucks -->
+{% extends "layout.nunjucks" %}
+
+{% block main %}
+      <h3><a id="learn-spanish" class="anchor" href="#learn-spanish" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Learn Spanish</h3>
+
+      <p>Basic tool to learn Spanish</p>
+{% endblock %}

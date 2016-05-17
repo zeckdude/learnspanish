@@ -53,22 +53,22 @@ a {
       margin-top: 1rem;
       margin-left: 0; } }
 
-.page-header {
+header {
   color: #fff;
   text-align: center;
   background-color: #159957;
   background-image: linear-gradient(120deg, #155799, #159957); }
 
 @media screen and (min-width: 64em) {
-  .page-header {
+  header {
     padding: 5rem 6rem; } }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
-  .page-header {
+  header {
     padding: 3rem 4rem; } }
 
 @media screen and (max-width: 42em) {
-  .page-header {
+  header {
     padding: 2rem 1rem; } }
 
 .project-name {
@@ -108,11 +108,11 @@ a {
   .project-tagline {
     font-size: 1rem; } }
 
-.main-content :first-child {
+main :first-child {
   margin-top: 0; }
 img {
   max-width: 100%; }
-.main-content h1, h2, h3, h4, h5, h6 {
+main h1, h2, h3, h4, h5, h6 {
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-weight: normal;
@@ -208,19 +208,19 @@ hr {
   border: 0; }
 
 @media screen and (min-width: 64em) {
-  .main-content {
+  #page-container {
     max-width: 64rem;
     padding: 2rem 6rem;
     margin: 0 auto;
     font-size: 1.1rem; } }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
-  .main-content {
+  #page-container {
     padding: 2rem 4rem;
     font-size: 1.1rem; } }
 
 @media screen and (max-width: 42em) {
-  .main-content {
+  #page-container {
     padding: 2rem 1rem;
     font-size: 1rem; } }
 
