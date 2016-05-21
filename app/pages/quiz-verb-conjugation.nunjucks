@@ -1,0 +1,11 @@
+<!-- quiz-verb-conjugation.nunjucks -->
+{% extends "layout.nunjucks" %}
+
+{% block main %}
+      <div class="js-quiz-verb-conjugation">
+        <h3><a id="learn-spanish" class="anchor" href="#learn-spanish" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Practice your knowledge of Spanish verb tenses</h3>
+        <p>Currently this will quiz you on all words and tenses available. In the future, each quiz attempted can be customized to choose the words and tenses to quiz for.</p>
+
+        {{ quiz.displayQuizArea() }}
+      </div>
+{% endblock %}

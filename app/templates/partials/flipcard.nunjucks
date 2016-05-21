@@ -1,0 +1,19 @@
+<div id="flip-container" class="flipInX animated">
+  <div class="flip">
+    <div class="card">
+      <div class="face front">
+        <span class="js-generated-sentence">Loading...</span>
+      </div>
+      <div class="face back">
+        <span class="js-generated-sentence">Loading...</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<span class="sentence-directions">(Click the card to reveal translation)</span>
+
+<div class="result-btns">
+  <button class="result-btn result-correct js-result-btn" data-result-status="correct">Correct</button>
+  <button class="result-btn result-wrong js-result-btn" data-result-status="wrong">Wrong</button>
+</div>

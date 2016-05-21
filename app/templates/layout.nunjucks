@@ -10,22 +10,26 @@
   <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   <link rel="stylesheet" type="text/css" href="stylesheets/animate.min.css" media="screen">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>-->
+  <script src="js/jquery.min.js"></script>
   <script type="text/javascript" src="vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
   <link rel="stylesheet" type="text/css" href="vendor/fancybox/jquery.fancybox.css?v=2.1.5" media="screen" />
 
-  <script src="js/script.js"></script>
+  <script src="js/bundle.js"></script>
 </head>
 <body>
   <header>
     <h1 class="project-name"><a href="index.html">Learn Spanish</a></h1>
     <h2 class="project-tagline"></h2>
     <a href="words.html" class="btn">Words List</a>
-    <a href="practice.html" class="btn">Practice Verb Conjugations</a>
+    <a href="quiz-verb-conjugation.html" class="btn">Quiz - Verb Conjugations</a>
+    <a href="quiz-word-retention.html" class="btn">Quiz - Word Retention</a>
   </header>
 
   <div id="page-container">
     <main>
+
+      {% import 'macros/quiz.nunjucks' as quiz %}
 
       <!-- Block "Main" Contents (begin) -->
         {% block main %} {% endblock %}

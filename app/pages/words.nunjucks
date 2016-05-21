@@ -3,9 +3,7 @@
 
 {% block main %}
       <div class="js-words">
-        <h3>
-          <a id="learn-spanish" class="anchor" href="#learn-spanish" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Practice words available currently</h3>
-
+        <h3><a id="learn-spanish" class="anchor" href="#learn-spanish" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Practice words available currently</h3>
         <p>Click a word to see the conjugation for each tense for that word</p>
 
         <div id="conjugation-words-chart" class="js-conjugation-words-chart"></div>

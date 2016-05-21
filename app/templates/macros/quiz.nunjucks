@@ -1,0 +1,50 @@
+{% macro displayQuizArea(instruction='In your head, please translate this word(s):', congratulation='You have completed the Quiz!') %}
+
+<div id="quiz">
+  <div class="progress">
+    <div id="progress-wrap" class="progress-wrap" data-progress-percent="0">
+      <div class="progress-bar"></div>
+    </div>
+    <div class="score"><p><span class="num-answered-correct">0</span> / <span class="num-words">NA</span></p></div>
+  </div>
+
+  <!--<div class="progress">-->
+    <!--<p><span class="first-try-correct">0</span> / <span class="num-words">NA</span></p>-->
+  <!--</div>-->
+
+  <div class="quiz-content">
+    <div class="questions">
+      <h3>{{ instruction }}</h3>
+
+      <!-- Add the flipcard partial -->
+      {% include "partials/flipcard.nunjucks" %}
+    </div>
+
+    <div class="results" style="display: none">
+      <h3>{{ congratulation }}</h3>
+      <div class="score">
+        <p>You answered a total of <span class="num-words"></span> words.</p>
+
+        <p>You got <span class="first-try-correct"></span> words correct on the first try.</p>
+
+        <!--<p>These are your 5 most difficult words:</p>-->
+        <!--<ul class="most-difficult-words"></ul>-->
+
+        <h4>Full Score <small>(<span class="first-try-correct"></span>/<span class="num-words"></span>)</small></h4>
+        <table class="full-score">
+          <thead>
+            <tr>
+              <th>Word</th>
+              <th>Number of tries to complete</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endmacro %}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <title>Learn Spanish by zeckdude</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="stylesheets/animate.min.css" media="screen">
+
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>-->
+  <script src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <link rel="stylesheet" type="text/css" href="vendor/fancybox/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+  <script src="js/bundle.js"></script>
+</head>
+<body>
+  <header>
+    <h1 class="project-name"><a href="index.html">Learn Spanish</a></h1>
+    <h2 class="project-tagline"></h2>
+    <a href="words.html" class="btn">Words List</a>
+    <a href="quiz-verb-conjugation.html" class="btn">Quiz - Verb Conjugations</a>
+    <a href="quiz-word-retention.html" class="btn">Quiz - Word Retention</a>
+  </header>
+
+  <div id="page-container">
+    <main>
+
+      
+
+      <!-- Block "Main" Contents (begin) -->
+        
+      <div class="js-quiz-verb-conjugation">
+        <h3><a id="learn-spanish" class="anchor" href="#learn-spanish" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Practice your knowledge of Spanish verb tenses</h3>
+        <p>Currently this will quiz you on all words and tenses available. In the future, each quiz attempted can be customized to choose the words and tenses to quiz for.</p>
+
+        
+
+<div id="quiz">
+  <div class="progress">
+    <div id="progress-wrap" class="progress-wrap" data-progress-percent="0">
+      <div class="progress-bar"></div>
+    </div>
+    <div class="score"><p><span class="num-answered-correct">0</span> / <span class="num-words">NA</span></p></div>
+  </div>
+
+  <!--<div class="progress">-->
+    <!--<p><span class="first-try-correct">0</span> / <span class="num-words">NA</span></p>-->
+  <!--</div>-->
+
+  <div class="quiz-content">
+    <div class="questions">
+      <h3>In your head, please translate this word(s):</h3>
+
+      <!-- Add the flipcard partial -->
+      <div id="flip-container" class="flipInX animated">
+  <div class="flip">
+    <div class="card">
+      <div class="face front">
+        <span class="js-generated-sentence">Loading...</span>
+      </div>
+      <div class="face back">
+        <span class="js-generated-sentence">Loading...</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<span class="sentence-directions">(Click the card to reveal translation)</span>
+
+<div class="result-btns">
+  <button class="result-btn result-correct js-result-btn" data-result-status="correct">Correct</button>
+  <button class="result-btn result-wrong js-result-btn" data-result-status="wrong">Wrong</button>
+</div>
+    </div>
+
+    <div class="results" style="display: none">
+      <h3>You have completed the Quiz!</h3>
+      <div class="score">
+        <p>You answered a total of <span class="num-words"></span> words.</p>
+
+        <p>You got <span class="first-try-correct"></span> words correct on the first try.</p>
+
+        <!--<p>These are your 5 most difficult words:</p>-->
+        <!--<ul class="most-difficult-words"></ul>-->
+
+        <h4>Full Score <small>(<span class="first-try-correct"></span>/<span class="num-words"></span>)</small></h4>
+        <table class="full-score">
+          <thead>
+            <tr>
+              <th>Word</th>
+              <th>Number of tries to complete</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      </div>
+
+      <!-- Block "Main" Contents (end) -->
+
+    </main>
+
+    <footer class="site-footer">
+      <span class="site-footer-owner"><a href="https://github.com/zeckdude/learnspanish">Learn Spanish</a> is maintained by <a href="https://github.com/zeckdude">zeckdude</a>.</span>
+
+      <span class="site-footer-credits">
+        <a href="https://github.com/zeckdude/learnspanish">View on GitHub</a>
+        <a href="https://github.com/zeckdude/learnspanish/zipball/master">Download .zip</a>
+        <a href="https://github.com/zeckdude/learnspanish/tarball/master">Download .tar.gz</a>
+      </span>
+    </footer>
+  </div>
+</body>
+</html>
