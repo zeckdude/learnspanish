@@ -21,6 +21,67 @@ var words = {
   }
 };
 
+
+//var verbs = {
+//  wordType: "verb",
+//  values: {
+//    hablar: {
+//      spanish: "hablar",
+//      english: "to speak (talk)",
+//      additional: {
+//        verbEnding: "ar",
+//        englishVariations: {
+//          present: "speak",
+//          present3rdPerson: "speaks",
+//          past: "spoke"
+//        }
+//      }
+//    },
+//    aprender: {
+//      spanish: "aprender",
+//      english: "to learn",
+//      additional: {
+//        verbEnding: "er",
+//        englishVariations: {
+//          present: "learn",
+//          present3rdPerson: "learns",
+//          past: "learned"
+//        }
+//      }
+//    },
+//    vivir: {
+//      spanish: "vivir",
+//      english: "to live",
+//      additional: {
+//        verbEnding: "ir",
+//        englishVariations: {
+//          present: "live",
+//          present3rdPerson: "lives",
+//          past: "lived"
+//        }
+//      }
+//    }
+//  }
+//};
+
+var verbs = {
+  wordType: "verb",
+  values: {
+    hablar: {
+      spanish: "hablar",
+      english: "to speak (talk)",
+      additional: {
+        verbEnding: "ar",
+        englishVariations: {
+          present: "speak",
+          present3rdPerson: "speaks",
+          past: "spoke"
+        }
+      }
+    }
+  }
+};
+
 var adjectives = {
   wordType: "adjective",
   values: {
@@ -181,239 +242,641 @@ var nouns = {
 //};
 
 
-var verbs = {
-  arWords: [
-    hablar = {
-      spanish: {
-        word: "hablar"
-      },
-      english: {
-        definition: "to speak (talk)",
-        present: "speak",
-        present3rdPerson: "speaks",
-        past: "spoke"
-      }
-    },
-    preguntar = {
-      spanish: {
-        word: "preguntar"
-      },
-      english: {
-        definition: "to ask",
-        present: "ask",
-        present3rdPerson: "asks",
-        past: "asked"
-      }
-    },
-    estudiar = {
-      spanish: {
-        word: "estudiar"
-      },
-      english: {
-        definition: "to study",
-        present: "study",
-        present3rdPerson: "studies",
-        past: "studied"
-      }
-    }
-  ],
-  erWords: [
-    aprender = {
-      spanish: {
-        word: "aprender"
-      },
-      english: {
-        definition: "to learn",
-        present: "learn",
-        present3rdPerson: "learns",
-        past: "learned"
-      }
-    },
-    vender = {
-      spanish: {
-        word: "vender"
-      },
-      english: {
-        definition: "to sell",
-        present: "sell",
-        present3rdPerson: "sells",
-        past: "sold"
-      }
-    },
-    romper = {
-      spanish: {
-        word: "romper"
-      },
-      english: {
-        definition: "to break",
-        present: "break",
-        present3rdPerson: "breaks",
-        past: "broke"
-      }
-    }
-  ],
-  irWords: [
-    venir = {
-      spanish: {
-        word: "abrir"
-      },
-      english: {
-        definition: "to open",
-        present: "open",
-        present3rdPerson: "opens",
-        past: "opened"
-      }
-    },
-    vivir = {
-      spanish: {
-        word: "vivir"
-      },
-      english: {
-        definition: "to live",
-        present: "live",
-        present3rdPerson: "lives",
-        past: "lived"
-      }
-    },
-    recibir = {
-      spanish: {
-        word: "recibir"
-      },
-      english: {
-        definition: "to receive",
-        present: "receive",
-        present3rdPerson: "receives",
-        past: "received"
-      }
-    }
-  ]
-};
+//var verbs = {
+//  wordType: "verb",
+//  arWords: [
+//    hablar = {
+//      spanish: {
+//        word: "hablar"
+//      },
+//      english: {
+//        definition: "to speak (talk)",
+//        present: "speak",
+//        present3rdPerson: "speaks",
+//        past: "spoke"
+//      }
+//    },
+//    preguntar = {
+//      spanish: {
+//        word: "preguntar"
+//      },
+//      english: {
+//        definition: "to ask",
+//        present: "ask",
+//        present3rdPerson: "asks",
+//        past: "asked"
+//      }
+//    },
+//    estudiar = {
+//      spanish: {
+//        word: "estudiar"
+//      },
+//      english: {
+//        definition: "to study",
+//        present: "study",
+//        present3rdPerson: "studies",
+//        past: "studied"
+//      }
+//    }
+//  ],
+//  erWords: [
+//    aprender = {
+//      spanish: {
+//        word: "aprender"
+//      },
+//      english: {
+//        definition: "to learn",
+//        present: "learn",
+//        present3rdPerson: "learns",
+//        past: "learned"
+//      }
+//    },
+//    vender = {
+//      spanish: {
+//        word: "vender"
+//      },
+//      english: {
+//        definition: "to sell",
+//        present: "sell",
+//        present3rdPerson: "sells",
+//        past: "sold"
+//      }
+//    },
+//    romper = {
+//      spanish: {
+//        word: "romper"
+//      },
+//      english: {
+//        definition: "to break",
+//        present: "break",
+//        present3rdPerson: "breaks",
+//        past: "broke"
+//      }
+//    }
+//  ],
+//  irWords: [
+//    abrir = {
+//      spanish: {
+//        word: "abrir"
+//      },
+//      english: {
+//        definition: "to open",
+//        present: "open",
+//        present3rdPerson: "opens",
+//        past: "opened"
+//      }
+//    },
+//    vivir = {
+//      spanish: {
+//        word: "vivir"
+//      },
+//      english: {
+//        definition: "to live",
+//        present: "live",
+//        present3rdPerson: "lives",
+//        past: "lived"
+//      }
+//    },
+//    recibir = {
+//      spanish: {
+//        word: "recibir"
+//      },
+//      english: {
+//        definition: "to receive",
+//        present: "receive",
+//        present3rdPerson: "receives",
+//        past: "received"
+//      }
+//    }
+//  ]
+//};
 
 var spanishTenses = {
-  arWords: {
+  ar: {
     present: {
       appendTo: "stem",
-      yo: "o",
-      tu: "as",
-      el: "a",
-      nosotros: "amos",
-      ellos: "an"
+      person: {
+        yo: "o",
+        tu: "as",
+        el: "a",
+        nosotros: "amos",
+        ellos: "an"
+      }
     },
     past: {
       appendTo: "stem",
-      yo: "e",
-      tu: "aste",
-      el: "ó",
-      nosotros: "amos",
-      ellos: "aron"
+      person: {
+        yo: "e",
+        tu: "aste",
+        el: "ó",
+        nosotros: "amos",
+        ellos: "aron"
+      }
     },
     imperfect: {
       appendTo: "stem",
-      yo: "aba",
-      tu: "abas",
-      el: "aba",
-      nosotros: "ábamos",
-      ellos: "aban"
+      person: {
+        yo: "aba",
+        tu: "abas",
+        el: "aba",
+        nosotros: "ábamos",
+        ellos: "aban"
+      }
     },
     future: {
       appendTo: "infinitive",
-      yo: "é",
-      tu: "ás",
-      el: "á",
-      nosotros: "emos",
-      ellos: "án"
+      person: {
+        yo: "é",
+        tu: "ás",
+        el: "á",
+        nosotros: "emos",
+        ellos: "án"
+      }
     },
     conditional: {
       appendTo: "infinitive",
-      yo: "ía",
-      tu: "ías",
-      el: "ía",
-      nosotros: "íamos",
-      ellos: "ían"
+      person: {
+        yo: "ía",
+        tu: "ías",
+        el: "ía",
+        nosotros: "íamos",
+        ellos: "ían"
+      }
     }
   },
-  erWords: {
+  er: {
     present: {
       appendTo: "stem",
-      yo: "o",
-      tu: "es",
-      el: "e",
-      nosotros: "emos",
-      ellos: "en"
+      person: {
+        yo: "o",
+        tu: "es",
+        el: "e",
+        nosotros: "emos",
+        ellos: "en"
+      }
     },
     past: {
       appendTo: "stem",
-      yo: "í",
-      tu: "iste",
-      el: "ió",
-      nosotros: "imos",
-      ellos: "ieron"
+      person: {
+        yo: "í",
+        tu: "iste",
+        el: "ió",
+        nosotros: "imos",
+        ellos: "ieron"
+      }
     },
     imperfect: {
       appendTo: "stem",
-      yo: "ía",
-      tu: "ías",
-      el: "ía",
-      nosotros: "íamos",
-      ellos: "ían"
+      person: {
+        yo: "ía",
+        tu: "ías",
+        el: "ía",
+        nosotros: "íamos",
+        ellos: "ían"
+      }
     },
     future: {
       appendTo: "infinitive",
-      yo: "é",
-      tu: "ás",
-      el: "á",
-      nosotros: "emos",
-      ellos: "án"
+      person: {
+        yo: "é",
+        tu: "ás",
+        el: "á",
+        nosotros: "emos",
+        ellos: "án"
+      }
     },
     conditional: {
       appendTo: "infinitive",
-      yo: "ía",
-      tu: "ías",
-      el: "ía",
-      nosotros: "íamos",
-      ellos: "ían"
+      person: {
+        yo: "ía",
+        tu: "ías",
+        el: "ía",
+        nosotros: "íamos",
+        ellos: "ían"
+      }
     }
   },
-  irWords: {
+  ir: {
     present: {
       appendTo: "stem",
-      yo: "o",
-      tu: "es",
-      el: "e",
-      nosotros: "imos",
-      ellos: "en"
+      person: {
+        yo: "o",
+        tu: "es",
+        el: "e",
+        nosotros: "imos",
+        ellos: "en"
+      }
     },
     past: {
       appendTo: "stem",
-      yo: "í",
-      tu: "iste",
-      el: "ió",
-      nosotros: "imos",
-      ellos: "ieron"
+      person: {
+        yo: "í",
+        tu: "iste",
+        el: "ió",
+        nosotros: "imos",
+        ellos: "ieron"
+      }
     },
     imperfect: {
       appendTo: "stem",
-      yo: "ía",
-      tu: "ías",
-      el: "ía",
-      nosotros: "íamos",
-      ellos: "ían"
+      person: {
+        yo: "ía",
+        tu: "ías",
+        el: "ía",
+        nosotros: "íamos",
+        ellos: "ían"
+      }
     },
     future: {
       appendTo: "infinitive",
-      yo: "é",
-      tu: "ás",
-      el: "á",
-      nosotros: "emos",
-      ellos: "án"
+      person: {
+        yo: "é",
+        tu: "ás",
+        el: "á",
+        nosotros: "emos",
+        ellos: "án"
+      }
     },
     conditional: {
       appendTo: "infinitive",
-      yo: "ía",
-      tu: "ías",
-      el: "ía",
-      nosotros: "íamos",
-      ellos: "ían"
+      person: {
+        yo: "ía",
+        tu: "ías",
+        el: "ía",
+        nosotros: "íamos",
+        ellos: "ían"
+      }
     }
+  }
+};
+
+
+var memorizeSet1 = {
+  wordType: "verb",
+  values: {
+    hablar: {
+      spanish: "hablar",
+      english: "to speak (talk)",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    acertar: {
+      spanish: "acertar",
+      english: "to get right",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    desear: {
+      spanish: "desear",
+      english: "to wish/desire",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    negar: {
+      spanish: "negar",
+      english: "to deny",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    mentir: {
+      spanish: "mentir",
+      english: "to lie",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    defender: {
+      spanish: "defender",
+      english: "to defend",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    pedir: {
+      spanish: "pedir",
+      english: "to ask for",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    aprobar: {
+      spanish: "aprobar",
+      english: "to approve",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    envolver: {
+      spanish: "envolver",
+      english: "to wrap (up)",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    encender: {
+      spanish: "encender",
+      english: "to light/kindle",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    rogar: {
+      spanish: "rogar",
+      english: "to beg/pray",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    tropezar: {
+      spanish: "tropezar (con)",
+      english: "to bump into",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    volar: {
+      spanish: "volar",
+      english: "to fly",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    tostar: {
+      spanish: "tostar",
+      english: "to toast",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    temblar: {
+      spanish: "temblar",
+      english: "to tremble/shake",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    pintar: {
+      spanish: "pintar",
+      english: "to paint",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    mover: {
+      spanish: "mover",
+      english: "to move (an object)",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    contar: {
+      spanish: "contar",
+      english: "to count",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    costar: {
+      spanish: "costar",
+      english: "to cost",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    dormir: {
+      spanish: "dormir",
+      english: "to sleep",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    encontrar: {
+      spanish: "encontrar",
+      english: "to find",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    morder: {
+      spanish: "morder",
+      english: "to bite",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    morir: {
+      spanish: "morir",
+      english: "to die",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    recordar: {
+      spanish: "recordar",
+      english: "to remember",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    comenzar: {
+      spanish: "comenzar",
+      english: "to begin/commence",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    resolver: {
+      spanish: "resolver",
+      english: "to solve",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    consentir: {
+      spanish: "consentir",
+      english: "to consent/pamper/spoil",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    hervir: {
+      spanish: "hervir",
+      english: "to boil",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    soñar: {
+      spanish: "soñar (con)",
+      english: "to dream (about)",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    sonar: {
+      spanish: "sonar",
+      english: "to sound/ring",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    devolver: {
+      spanish: "devolver",
+      english: "to return (an object)",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    almorzar: {
+      spanish: "almorzar",
+      english: "to eat lunch",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    advertir: {
+      spanish: "advertir",
+      english: "to warn",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    cerrar: {
+      spanish: "cerrar",
+      english: "to close/shut",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    aconsejar: {
+      spanish: "aconsejar",
+      english: "to advise",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    convertir: {
+      spanish: "convertir",
+      english: "to convert",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    volver: {
+      spanish: "volver",
+      english: "to return",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    adivinar: {
+      spanish: "adivinar",
+      english: "to guess",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    empezar: {
+      spanish: "empezar",
+      english: "to begin",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    probar: {
+      spanish: "probar",
+      english: "to prove/test/sample",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    confesar: {
+      spanish: "confesar",
+      english: "to confess",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    sentir: {
+      spanish: "sentir",
+      english: "to feel sorry/regret",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    entender: {
+      spanish: "entender",
+      english: "to understand",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    fregar: {
+      spanish: "fregar",
+      english: "to scrub dishes/wash dishes",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    mostrar: {
+      spanish: "mostrar",
+      english: "to show",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    pensar_en: {
+      spanish: "pensar (en)",
+      english: "to think (about)",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    colgar: {
+      spanish: "colgar",
+      english: "to hang up",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    perder: {
+      spanish: "perder",
+      english: "to lose",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    tambalear: {
+      spanish: "tambalear",
+      english: "to stumble",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    preferir: {
+      spanish: "preferir",
+      english: "to prefer",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    querer: {
+      spanish: "querer",
+      english: "to want/wish",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    referir: {
+      spanish: "referir",
+      english: "to refer",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
   }
 };

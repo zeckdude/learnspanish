@@ -5,31 +5,19 @@ $(document).ready(function(){
   if ( $( ".js-quiz-word-retention" ).length ) {
     hasFirstQuestionRun = false;
 
-    var quantityType;
-    var wordTheEnglish;
-    var wordAEnglish;
-    var wordTheSpanish;
-    var wordASpanish;
-    var leadWordEnglish;
-    var leadWordSpanish;
-
-    var englishOutput;
-    var spanishOutput;
-
-    //quizWordsToInclude: [nouns, adjectives, words]
-
     var quizOptions = {
       onlyShowUnansweredQuestions: true,
-      quizWordsToInclude: [nouns, adjectives, words],
+      quizType: 'retention',
+      quizWords: [memorizeSet1],
       functionToGenerateQuizQuestion: generateWordRetentionQuizQuestion
     };
 
-    var quizWords = createQuiz(quizOptions.quizWordsToInclude);
+    var quizWords = createQuiz(quizOptions.quizWords, quizOptions.quizType);
+
+    console.log("quizWords", quizWords);
 
     function generateWordRetentionQuizQuestion() {
       //console.log('Question Generated');
-
-      // Get the word group which defines the english and spanish versions of the word in singular and plural form, as well as the noun gender
 
       var randomWordGroup = getRandomProperty(quizWords)['propertyValue'];
       console.log('randomWordGroup', randomWordGroup);
@@ -50,11 +38,19 @@ $(document).ready(function(){
       //}
 
       if(randomWordGroup.wordType !== "noun") {
-        englishOutput = randomWordGroup.english;
-        spanishOutput = randomWordGroup.spanish;
+        var englishOutput = randomWordGroup.english;
+        var spanishOutput = randomWordGroup.spanish;
       }
 
       if(randomWordGroup.wordType === "noun") {
+        var quantityType;
+        var wordTheEnglish;
+        var wordAEnglish;
+        var wordTheSpanish;
+        var wordASpanish;
+        var leadWordEnglish;
+        var leadWordSpanish;
+
         var randomWordGender = randomWordGroup['gender'];
 
         // If the plural property is missing, it is assumed that the plural form of the noun is simply the singular version with an "s" at the end. Ex: "niño" and "niños" & "boy" and "boys"
@@ -107,8 +103,8 @@ $(document).ready(function(){
           leadWordSpanish = wordASpanish;
         }
 
-        englishOutput = leadWordEnglish + " " + randomWordEnglish;
-        spanishOutput = leadWordSpanish + " " + randomWordSpanish;
+        var englishOutput = leadWordEnglish + " " + randomWordEnglish;
+        var spanishOutput = leadWordSpanish + " " + randomWordSpanish;
       }
 
       return {

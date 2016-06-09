@@ -179,6 +179,9 @@ function getRandomInt(min, max) {
 }
 
 function activateQuiz(quizOptions, quizWords) {
+  console.log('In activateQuiz()');
+  console.log('quizWords in activateQuiz()', quizWords);
+
   var quiz = $("#quiz");
 
   numWords = getNumberObjectProperties(quizWords);
@@ -225,6 +228,7 @@ function activateQuiz(quizOptions, quizWords) {
           completedQuizWords[lastWordKey].english = quizWords[lastWordKey].english;
           completedQuizWords[lastWordKey].spanish = quizWords[lastWordKey].spanish;
         }
+
         completedQuizWords[lastWordKey].answerAttempted = quizWords[lastWordKey].answerAttempted;
         completedQuizWords[lastWordKey].wordType = quizWords[lastWordKey].wordType;
 
@@ -341,29 +345,98 @@ function activateQuiz(quizOptions, quizWords) {
 }
 
 // Create Object that holds all the words to be asked on a particular quiz
-function createQuiz(wordObjectsArray) {
+function createQuiz(quizObjects, quizType) {
+
+  console.log('In createQuiz()');
 
   var quizOutput = {};
 
-  // Loop through each of the wordObjects provided (ex: nouns, adjectives, etc.)
-  $.each(wordObjectsArray, function(index, wordObject){
-    //console.log(wordObject);
+  if(quizType === 'retention') {
+    // Loop through each of the wordObjects provided (ex: nouns, adjectives, etc.)
+    $.each(quizObjects, function (index, wordObject) {
+      console.log(wordObject);
 
-    // Loop through each WordGroup
-    $.each(wordObject.values, function(wordKey, wordGroup){
-      wordGroup.key = wordKey;
-      wordGroup.wordType = wordObject.wordType;
-      wordGroup.answerCorrect = false;
-      wordGroup.answerAttempted = 0;
-      //console.log(wordKey, wordGroup);
+      // Loop through each WordGroup
+      $.each(wordObject.values, function (wordKey, wordGroup) {
+        wordGroup.key = wordKey;
+        wordGroup.wordType = wordObject.wordType;
+        wordGroup.answerCorrect = false;
+        wordGroup.answerAttempted = 0;
+        //console.log(wordKey, wordGroup);
 
-      // Add the wordGroup to the quizOutput object
-      quizOutput[wordKey] = wordGroup;
+        // Add the wordGroup to the quizOutput object
+        quizOutput[wordKey] = wordGroup;
+      });
     });
-  });
+  }
+
+  if(quizType === 'conjugation') {
+    //console.log(quizObjects);
+
+    quizOutput.wordTypes = [];
+    quizOutput.values = {};
+
+    // Loop through each of the wordObjects provided (ex: nouns, adjectives, etc.)
+    $.each(quizObjects, function (index, conjugationObject) {
+      //console.log('here3',conjugationObject);
+
+      // Loop through each WordType(i.e. 'ar', 'er', or 'ir' words)
+      $.each(conjugationObject, function (wordTypeName, wordTypeObject) {
+        //console.log('here4 - wordTypeName',wordTypeName);
+        //console.log('here4 - wordTypeObject',wordTypeObject);
+
+        $.each(wordTypeObject, function (tenseName, tenseObject) {
+          //console.log('here5 - tenseName',tenseName);
+          //console.log('here5 - tenseObject',tenseObject);
+
+          $.each(tenseObject.person, function (person, conjugation) {
+            //console.log('here6 - person',person);
+            //console.log('here6 - conjugation',conjugation);
+
+            var conjugationGroup = {
+              answerCorrect: false,
+              answerAttempted: 0,
+              wordType: wordTypeName,
+              tense: tenseName,
+              appendTo: tenseObject.appendTo,
+              person: person,
+              conjugation: conjugation
+            };
+
+            console.log("conjugationGroup", conjugationGroup);
+            console.log("wordTypeName", wordTypeName);
+            console.log(typeof quizOutput.wordTypes);
+
+            // Add the conjugation wordType to the quizOutput object if it is not already in there
+            pushWordTypeToArray(quizOutput.wordTypes, wordTypeName);
+
+            // Add the conjugationGroup to the quizOutput object
+            quizOutput.values[wordTypeName + '-' + tenseName + '-' + person] = conjugationGroup;
+          });
+        });
+      });
+    });
+  }
 
   console.log("final quizOutput", quizOutput);
   return quizOutput;
+}
+
+function pushWordTypeToArray(wordTypeArray, newWordTypeValue) {
+  wordTypeArray = wordTypeArray || [];
+
+  if(wordTypeArray.length < 3) {
+    if ($.inArray(newWordTypeValue, wordTypeArray) == -1) {
+      wordTypeArray.push(newWordTypeValue);
+      console.log("wordTypeArray", wordTypeArray);
+
+      return wordTypeArray;
+    }
+
+    return false;
+  }
+
+  return false;
 }
 
 
