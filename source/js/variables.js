@@ -880,3 +880,324 @@ var memorizeSet1 = {
     },
   }
 };
+
+var memorizeSet2 = {
+  wordType: "verb",
+  values: {
+    bendecir: {
+      spanish: "bendecir",
+      english: "to bless",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    deducir: {
+      spanish: "deducir",
+      english: "to deduce",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    competir: {
+      spanish: "competir",
+      english: "to compete",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    conseguir: {
+      spanish: "conseguir",
+      english: "to obtain, get",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    corregir: {
+      spanish: "corregir",
+      english: "to correct",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    decir: {
+      spanish: "decir",
+      english: "to say, tell",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    despedir: {
+      spanish: "despedir",
+      english: "to fire",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    elegir: {
+      spanish: "elegir",
+      english: "to elect",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    freír: {
+      spanish: "freír",
+      english: "to fry",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    gemir: {
+      spanish: "gemir",
+      english: "to groan, moan",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    impedir: {
+      spanish: "impedir",
+      english: "to impede, hinder",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    maldecir: {
+      spanish: "maldecir",
+      english: "to curse",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    medir: {
+      spanish: "medir",
+      english: "to measure",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    pedir: {
+      spanish: "pedir",
+      english: "to ask for",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    reír: {
+      spanish: "reír",
+      english: "to laugh",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    repetir: {
+      spanish: "repetir",
+      english: "to repeat",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    seguir: {
+      spanish: "seguir",
+      english: "to follow, continue",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    servir: {
+      spanish: "servir",
+      english: "to serve",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    agradecer: {
+      spanish: "agradecer",
+      english: "to appreciate, be thankful (for)",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    aparecer: {
+      spanish: "aparecer",
+      english: "to appear",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    conocer: {
+      spanish: "conocer",
+      english: "to know (a person, place, subject)",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    crecer: {
+      spanish: "crecer",
+      english: "to grow",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    desaparecer: {
+      spanish: "desaparecer",
+      english: "to disappear",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    establecer: {
+      spanish: "establecer",
+      english: "to establish",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    merecer: {
+      spanish: "merecer",
+      english: "to deserve, merit",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    nacer: {
+      spanish: "nacer",
+      english: "to be born",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    obedecer: {
+      spanish: "obedecer",
+      english: "to obey",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    ofrecer: {
+      spanish: "ofrecer",
+      english: "to offer",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    paracer: {
+      spanish: "paracer",
+      english: "to seem, look like",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    pertenecer: {
+      spanish: "pertenecer (a)",
+      english: "to belong (to)",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    placer: {
+      spanish: "placer",
+      english: "to please, gratify",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    reconocer: {
+      spanish: "reconocer",
+      english: "to recognize",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    conducir: {
+      spanish: "conducir",
+      english: "to conduct, drive",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    deslucir: {
+      spanish: "deslucir",
+      english: "to tarnish, spoil",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    inducir: {
+      spanish: "inducir",
+      english: "to induce, persuade",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    introducir: {
+      spanish: "introducir",
+      english: "to introduce",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    lucir: {
+      spanish: "lucir",
+      english: "to light up, display",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    producir: {
+      spanish: "producir",
+      english: "to produce",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    reducir: {
+      spanish: "reducir",
+      english: "to reduce",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    traducir: {
+      spanish: "traducir",
+      english: "to translate",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    convencer: {
+      spanish: "convencer",
+      english: "to convince, persuade",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    ejercer: {
+      spanish: "ejercer",
+      english: "to exert, exercise",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    esparcir: {
+      spanish: "esparcir",
+      english: "to scatter, spread",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    vencer: {
+      spanish: "vencer",
+      english: "to conquer, defeat",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    zurcir: {
+      spanish: "zurcir",
+      english: "to mend",
+      additional: {
+        verbEnding: "ir"
+      }
+    }
+  }
+};

@@ -8,7 +8,7 @@ $(document).ready(function(){
     var quizOptions = {
       onlyShowUnansweredQuestions: true,
       quizType: 'retention',
-      quizWords: [memorizeSet1],
+      quizWords: [memorizeSet1, memorizeSet2],
       functionToGenerateQuizQuestion: generateWordRetentionQuizQuestion
     };
 
