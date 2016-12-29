@@ -511,6 +511,208 @@ var spanishTenses = {
 };
 
 
+var reflexiveVerbsSet1 = {
+  wordType: "verb",
+  values: {
+    acostarse: {
+      spanish: "acostarse",
+      english: "to go to bed",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    afeitarse: {
+      spanish: "afeitarse",
+      english: "to shave oneself",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    bañarse: {
+      spanish: "bañarse",
+      english: "to bathe oneself",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    casarse: {
+      spanish: "casarse (con alguien)",
+      english: "to marry (someone)",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    cepillarse: {
+      spanish: "cepillarse",
+      english: "to brush oneself (hair, teeth, etc)",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    comerse: {
+      spanish: "comerse",
+      english: "to eat hastily",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    despertarse: {
+      spanish: "despertarse",
+      english: "to wake up",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    desvestirse: {
+      spanish: "desvestirse",
+      english: "to undress oneself",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    dormirse: {
+      spanish: "dormirse",
+      english: "to fall asleep",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    ducharse: {
+      spanish: "ducharse",
+      english: "to take a shower",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    enfermarse: {
+      spanish: "enfermarse",
+      english: "to get sick",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    enojarse: {
+      spanish: "enojarse",
+      english: "to get angry",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    irse: {
+      spanish: "irse",
+      english: "to go away",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    lavarse: {
+      spanish: "lavarse",
+      english: "to wash oneself",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    levantarse: {
+      spanish: "levantarse",
+      english: "to stand up",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    llamarse: {
+      spanish: "llamarse",
+      english: "to call oneself",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    mirarse: {
+      spanish: "mirarse",
+      english: "to look at oneself",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    morirse: {
+      spanish: "morirse",
+      english: "to pass away",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    peinarse: {
+      spanish: "peinarse",
+      english: "to comb one's hair",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    ponerse: {
+      spanish: "ponerse",
+      english: "to become, get",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    preocuparse: {
+      spanish: "preocuparse (con)",
+      english: "to worry (about)",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    probarse: {
+      spanish: "probarse",
+      english: "to try on (clothing)",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    quitarse: {
+      spanish: "quitarse",
+      english: "to take off (clothing)",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    secarse: {
+      spanish: "secarse",
+      english: "to dry oneself",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    sentarse: {
+      spanish: "sentarse",
+      english: "to seat oneself",
+      additional: {
+        verbEnding: "ar"
+      }
+    },
+    sentirse: {
+      spanish: "sentirse",
+      english: "to feel (emotionally, physically)",
+      additional: {
+        verbEnding: "ir"
+      }
+    },
+    verse: {
+      spanish: "verse",
+      english: "to see oneself",
+      additional: {
+        verbEnding: "er"
+      }
+    },
+    vestirse: {
+      spanish: "vestirse",
+      english: "to get dressed",
+      additional: {
+        verbEnding: "ir"
+      }
+    }
+  }
+};
+
 var memorizeSet1 = {
   wordType: "verb",
   values: {
