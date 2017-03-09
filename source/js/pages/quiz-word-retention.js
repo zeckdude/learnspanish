@@ -9,7 +9,7 @@ $(document).ready(function(){
       onlyShowUnansweredQuestions: true,
       quizType: 'retention',
       //quizWords: [memorizeSet1, memorizeSet2],
-      quizWords: [reflexiveVerbsSet1],
+      quizWords: [timeWords],
       functionToGenerateQuizQuestion: generateWordRetentionQuizQuestion
     };
 

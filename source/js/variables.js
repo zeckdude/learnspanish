@@ -21,6 +21,72 @@ var words = {
   }
 };
 
+var timeWords = {
+  wordType: "word",
+  values: {
+    todoElDia: {
+      spanish: "todo el día",
+      english: "all day long"
+    },
+    todaLaVida: {
+      spanish: "toda la vida",
+      english: "all one's life"
+    },
+    todoElTiemp: {
+      spanish: "todo el tiempo",
+      english: "all the time"
+    },
+    siempre: {
+      spanish: "siempre",
+      english: "always / forever"
+    },
+    aVeces: {
+      spanish: "a veces",
+      english: "At times / Sometimes"
+    },
+    cadaDia: {
+      spanish: "cada día",
+      english: "every day"
+    },
+    cadaAno: {
+      spanish: "cada año",
+      english: "every year"
+    },
+    porUnRato: {
+      spanish: "por un rato",
+      english: "for a while"
+    },
+    frecuentemente: {
+      spanish: "frecuentemente / con frecuencia",
+      english: "frequently / often"
+    },
+    deVezEnCuando: {
+      spanish: "de vez en cuando",
+      english: "from time to time"
+    },
+    muchasVeces: {
+      spanish: "muchas veces",
+      english: "many times"
+    },
+    nunca: {
+      spanish: "nunca",
+      english: "never"
+    },
+    tantasVeces: {
+      spanish: "tantas veces",
+      english: "so many times"
+    },
+    variasVeces: {
+      spanish: "varias veces",
+      english: "(various / several) times"
+    },
+    cuando: {
+      spanish: "cuando",
+      english: "when / whenever"
+    }
+  }
+};
+
 
 //var verbs = {
 //  wordType: "verb",
