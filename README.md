@@ -1,5 +1,3 @@
-# learnspanish
-
 # Learn Spanish 🇪🇸
 
 Learn Spanish is a basic tool to help you learn Spanish. As someone who loves learning languages, I created this simple web app as a way to practice my Spanish vocabulary and verb conjugations. 
